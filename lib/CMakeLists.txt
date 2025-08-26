@@ -9,7 +9,7 @@
 ########################################################################
 # Setup library
 ########################################################################
-include(GrPlatform) #define LIB_SUFFIX
+include(GNUInstallDirs)
 
 list(APPEND dvbs2rx_sources
     bbdeheader_bb_impl.cc
@@ -28,7 +28,7 @@ add_library(gnuradio-dvbs2rx SHARED ${dvbs2rx_sources})
 target_link_libraries(gnuradio-dvbs2rx gnuradio::gnuradio-runtime)
 target_include_directories(gnuradio-dvbs2rx
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include>
-    PUBLIC $<INSTALL_INTERFACE:include>
+    PUBLIC $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
   )
 set_target_properties(gnuradio-dvbs2rx PROPERTIES DEFINE_SYMBOL "gnuradio_dvbs2rx_EXPORTS")
 
